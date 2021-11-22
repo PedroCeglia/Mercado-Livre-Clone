@@ -40,6 +40,14 @@ export default function Log(){
         }
     }
 
+    // Change The Container Ative (LogIn/SingIn)
+    function togglerContainers(){
+        const singIn = document.querySelector('.container-log .content-log .container-sing-in')
+        const logIn = document.querySelector('.container-log .content-log .container-log-in')
+        singIn.classList.toggle('none')
+        logIn.classList.toggle('none')
+    }
+
     return(
         <div className='container-log'>
             <div className='container-header-log'>
@@ -48,21 +56,23 @@ export default function Log(){
             <div className='content-log'>
                 <div className='container-sing-in'>
                     <h2>Sing-In</h2>
-                    <input type='text' placeholder='ex ...Maria' 
+                    <input type='text' placeholder='Nome' 
                         value={inputSName} onChange={text => setInputSName(text.target.value)}/>
-                    <input type='email' placeholder='ex ...@gmail' 
+                    <input type='email' placeholder='Email' 
                         value={inputSEmail} onChange={text => setInputSEmail(text.target.value)}/>
-                    <input type='password' placeholder='ex ...123Maria@' 
+                    <input type='password' placeholder='Senha' 
                         value={inputSPassword} onChange={text => setInputSPassword(text.target.value)}/>
                     <button onClick={create}>Sing-In</button>
+                    <button className='change-container' onClick={togglerContainers}>Já tem conta?</button>
                 </div>
-                <div className='log-in-container none'>
+                <div className='container-log-in none'>
                     <h2>Log-In</h2>
-                    <input type='email' placeholder='ex ...@gmail' 
+                    <input type='email' placeholder='Email' 
                         value={inputLEmail} onChange={text => setInputLEmail(text.target.value)}/>
-                    <input type='password' placeholder='ex ...123Maria@' 
+                    <input type='password' placeholder='Senha' 
                         value={inputLPassword} onChange={text => setInputLPassword(text.target.value)}/>
                     <button onClick={login}>Sing-In</button>
+                    <button className='change-container' onClick={togglerContainers}>Não tem uma conta?</button>
                 </div>
             </div>
         </div>

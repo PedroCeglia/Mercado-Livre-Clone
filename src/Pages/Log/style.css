@@ -74,6 +74,14 @@
 
     cursor: pointer;
 }
+.container-log .content-log .change-container{
+    padding: 0;
+    width: auto;
+
+    color: #457fca;
+    border: none;
+    background: transparent;
+}
 .container-log .content-log div.none{
     display: none;
 }

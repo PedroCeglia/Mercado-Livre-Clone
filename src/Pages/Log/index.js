@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './style.css'
 
 // Import AuthApi
-import { singInUser, createUser } from '../../Firebase/API/AuthApi'
+import { logInUser, createUser } from '../../Firebase/API/AuthApi'
 
 export default function Log(){
 
@@ -31,7 +31,7 @@ export default function Log(){
     function login(){
         if(inputLEmail.indexOf('@') > -1 ){
             if(inputLPassword.length > 6){
-                singInUser(inputLEmail, inputLPassword)
+                logInUser(inputLEmail, inputLPassword)
             } else{
                 alert('A Senha Precisa ter no Minimo 6 Digitos')
             }

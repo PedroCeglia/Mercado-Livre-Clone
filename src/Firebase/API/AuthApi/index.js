@@ -5,7 +5,7 @@ import {auth} from '../../FirebaseConfig'
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword} from '@firebase/auth'
 
 //Import DatabaseApi
-import {setUserNameDatabase, setUserFotoInDatabse} from '../DatabaseApi'
+import {setUserNameDatabase, setUserFotoInDatabse, createUserInDatabase} from '../DatabaseApi'
 
 
 // Create User With Email And Password

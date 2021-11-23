@@ -2,7 +2,7 @@
 import {auth} from '../../FirebaseConfig'
 
 // Import Auth API`s
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword} from '@firebase/auth'
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePassword, onAuthStateChanged} from '@firebase/auth'
 
 //Import DatabaseApi
 import {setUserNameDatabase, setUserFotoInDatabse, createUserInDatabase} from '../DatabaseApi'
@@ -78,7 +78,7 @@ export function setName(name, id){
     })
 }
 
-// set User Foto
+// Set User Foto
 export function setUserFoto(url){
     updateProfile(auth.currentUser,{
         photoURL:url
@@ -88,9 +88,20 @@ export function setUserFoto(url){
     })
 }
 
-// set User Senha
+// Set User Senha
 export function setUserPassword(password){
     updatePassword(auth.currentUser, password).then(()=>{
         alert('Parabens, mudou de senha')
     })
 }
+
+// Listener User Log
+export function listenerUserLog(setUser){
+    onAuthStateChanged(auth, user =>{
+        if(user != null){
+            setUser(user)
+        } else{
+            setUser(null)
+        }
+    })
+} 

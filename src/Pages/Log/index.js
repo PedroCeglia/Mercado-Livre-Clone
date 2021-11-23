@@ -1,10 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './style.css'
 
+// Import React Router
+import { useNavigate } from 'react-router'
+
 // Import AuthApi
-import { logInUser, createUser } from '../../Firebase/API/AuthApi'
+import { logInUser, createUser, listenerUserLog } from '../../Firebase/API/AuthApi'
 
 export default function Log(){
+
+    // Verify if User Is Log And Get
+    const [user, setUser] = useState()
+    useEffect(()=>{
+        listenerUserLog(setUser)
+    },[])
+
+    // Change Page to Home
+    const navigate = useNavigate()
+    useEffect(()=>{
+        if(user != null){
+            navigate('/')
+        }
+    },[user, navigate])
 
     // Sing-In User
     const [inputSName, setInputSName] = useState("")
@@ -51,7 +68,7 @@ export default function Log(){
     return(
         <div className='container-log'>
             <div className='container-header-log'>
-                <img src='../assets/logo.png'/>
+                <img onClick={()=>{navigate('/')}} src='../assets/logo.png' alt='Logo Icon'/>
             </div>
             <div className='content-log'>
                 <div className='container-sing-in'>

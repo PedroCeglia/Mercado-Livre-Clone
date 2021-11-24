@@ -1,0 +1,50 @@
+.container-item-produto{
+    width: 224px;
+    margin: 20px;
+    background-color: #fff;
+    min-height: 454px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+
+    font-family: Roboto, sans-serif;
+
+}
+.container-item-produto img{
+    width: 224px;
+    height: 224px;
+}
+.container-item-produto div{
+    border-top: 1px solid rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 224px;
+    padding: 10px 20px;
+}
+.container-item-produto div p{
+    color: rgba(0,0,0,.8);
+    width: 70%;
+    font-size: 0.9em;
+    text-align: center;
+    align-self: center;
+    margin-bottom:20px;
+}
+.container-item-produto div span.parcelas{
+    color: rgba(0, 128, 0, 0.685);
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+.container-item-produto div span.frete{
+    color: green;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.container-item-produto div span.preco{
+    font-size: 1.3em;
+    font-weight: bold;
+}

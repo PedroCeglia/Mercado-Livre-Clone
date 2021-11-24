@@ -1,16 +1,25 @@
 header.header-home{
     width: 100vw;
     background-color: #fff059;
+
+    overflow: hidden;
     
     padding:10px 20px;
     
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 8;
 }
 header.header-home img.logo{
     margin-right: 20px;
     align-self: flex-start;
+    cursor: pointer;
 }
 
 /* Header Home Menu Input Container */

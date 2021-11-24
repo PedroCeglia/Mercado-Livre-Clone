@@ -1,0 +1,15 @@
+.home-container{
+    overflow: hidden;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.outlet-container{
+    position: absolute;
+    top: 110px;
+    left: 0;
+    width: 100%;
+}

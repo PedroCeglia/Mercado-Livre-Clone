@@ -2,7 +2,7 @@
 import {database} from '../../FirebaseConfig'
 
 // Import Database Api`s
-import {ref, set, update} from '@firebase/database'
+import {get, ref, set, update} from '@firebase/database'
 
 // Create User In Database
 export function createUserInDatabase(email, id){
@@ -23,5 +23,14 @@ export function setUserNameDatabase(name, id){
 export function setUserFotoInDatabse(url, id){
     update(ref(database,`usuarios/${id}`),{
         foto:url
+    })
+}
+
+// Get User By ID
+export function getUserById(id, setUser){
+    get(ref(database,`usuarios/${id}`)).then(snapshot => {
+        if(snapshot.exists()){
+            setUser(snapshot.val())
+        }
     })
 }

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import './app.css'
 
 // Import React Redux
@@ -28,8 +28,8 @@ function App({dispatch}){
   },[userAuth])
 
   // Set User In Redux
-  function setUserInRedux(exist){
-    if(exist != false){
+  const setUserInRedux = useCallback((exist)=>{
+    if(exist !== false){
       return {
         type:'SET_USER',
         user:{
@@ -46,18 +46,19 @@ function App({dispatch}){
         }
       }
     }
-  }
-  useEffect(()=>{
-    if(userDatabase != null){
-      dispatch(setUserInRedux(true))
-    }else{
-      dispatch(setUserInRedux(false))
-    }
   },[userDatabase])
+
+  useEffect(()=>{
+      if(userDatabase != null){
+        dispatch(setUserInRedux(true))
+      }else{
+        dispatch(setUserInRedux(false))
+      } 
+  },[userDatabase,setUserInRedux, dispatch])
 
   return (
       <Rotas/>      
   );
 }
 
-export default connect( state => {})(App);
+export default connect()(App);

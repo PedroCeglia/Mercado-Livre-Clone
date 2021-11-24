@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react'
 import './style.css'
 
 // Import React Router
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 
 export default function Header(){
+
+    // Get Navigate
+    const navigate = useNavigate()
 
     // Get Location
     const location = useLocation()
@@ -26,7 +29,7 @@ export default function Header(){
 
     return(
         <header className='header-home'>
-            <img className='logo' src={srcDiretory + 'assets/logo.png'} alt='Logo Icon'/>
+            <img onClick={()=>{if(location.pathname != '/'){navigate('/')}}} className='logo' src={srcDiretory + 'assets/logo.png'} alt='Logo Icon'/>
             <div className='menu-input-container'>    
                 <div className='input-area'>
                     <label><img src={srcDiretory + 'assets/search.png'} alt='Search Icon'/></label>
@@ -37,7 +40,7 @@ export default function Header(){
                         <li><button>Categorias</button></li>
                         <li><button>Promoções</button></li>
                         <li><button>Histórico</button></li>
-                        <li><button>Vender</button></li>
+                        <li><button onClick={()=>{if(location.pathname != '/vender'){navigate('/vender')}}}>Vender</button></li>
                     </ul>
                 </nav>
             </div>
